@@ -1,0 +1,10 @@
+crud/practica/crud_practica/Model/Datos_.class
+crud/practica/crud_practica/Services/DatosServices.class
+crud/practica/crud_practica/DAO/GenericDAO.class
+crud/practica/crud_practica/Model/Datos.class
+crud/practica/crud_practica/JAXRSConfiguration.class
+crud/practica/crud_practica/resources/JavaEE8Resource.class
+crud/practica/crud_practica/Interfaz/Idatos.class
+crud/practica/crud_practica/Controllers/DatosController.class
+crud/practica/crud_practica/JPA/DatosJPA.class
+crud/practica/crud_practica/DAO/DAO.class
