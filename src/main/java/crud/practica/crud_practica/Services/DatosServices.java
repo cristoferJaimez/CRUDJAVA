@@ -21,10 +21,39 @@ public class DatosServices {
     @EJB
     private Idatos iDatos;
     
+    
+    //crear por obj 
+     public void crear(Datos datos){
+        iDatos.crear(datos);
+        
+    }
+     
+     
+     
+     
+     
+     
+     // crear por query nativo
+     public void crearDAtos(String dato, String dato2, String borrado_log){
+         iDatos.guardarDato(dato, dato2,borrado_log);
+     }
+    
+    
+    
+     // eliminar 
+     public void eliminar(int id, String borrado_log){
+         iDatos.eliminardato(id, borrado_log);
+     } 
+    
+    
+    
     // obtenemos todo los datos
     public List<Datos>listartodo(){
        return iDatos.obtenerAll();
     }
+    
+    
+    
     
     
 }

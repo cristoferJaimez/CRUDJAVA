@@ -32,6 +32,32 @@ public class DatosController implements Serializable {
 
     }
 
+    private String dato;
+    private String dato2;
+    private String borrado_log;
+
+    private int editarDato;
+
+    public void crear() {
+        try {
+//            datosServicios.crear(datos);
+
+            datosServicios.crearDAtos(dato, dato2, borrado_log);
+            System.out.println("se guardo el registro");
+        } catch (Exception e) {
+            System.out.println("Error al guardar" + e.getMessage());
+        }
+    }
+
+    //eliminar
+    public void eliminar(int id) {
+        try {
+            datosServicios.eliminar(id, borrado_log);
+        } catch (Exception e) {
+        }
+
+    }
+
     public List<Datos> listarDatos() {
         return datosServicios.listartodo();
     }
@@ -53,4 +79,40 @@ public class DatosController implements Serializable {
         this.datos = datos;
     }
 //</editor-fold>
+
+    public String getDato() {
+        return dato;
+    }
+
+    public void setDato(String dato) {
+        this.dato = dato;
+    }
+
+    public String getDato2() {
+        return dato2;
+    }
+
+    public void setDato2(String dato2) {
+        this.dato2 = dato2;
+    }
+
+    public String getBorrado_log() {
+        return borrado_log;
+    }
+
+    public void setBorrado_log(String borrado_log) {
+        this.borrado_log = borrado_log;
+    }
+
+   
+    
+
+    public int getEditarDato() {
+        return editarDato;
+    }
+
+    public void setEditarDato(int editarDato) {
+        this.editarDato = editarDato;
+    }
+
 }

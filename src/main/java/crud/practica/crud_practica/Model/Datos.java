@@ -23,12 +23,10 @@ import javax.persistence.Table;
 @Table(name = "datos")
 
 @NamedQueries(value = {
-    @NamedQuery(name = "Datos.getAll", query = "SELECT obj FROM Datos obj"),
-})
+    @NamedQuery(name = "Datos.getAll", query = "SELECT obj FROM Datos obj"),})
 
 public class Datos implements Serializable {
 
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,43 +39,40 @@ public class Datos implements Serializable {
     private String dato2;
 
     @Column(name = "borrado_log")
-    private Integer borrado_log;
-    
-    
-    
+    private String borrado_log;
+
 //<editor-fold defaultstate="collapsed" desc="Setter and Getter">
-    
     public Integer getId() {
         return id;
     }
-    
+
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getDato() {
         return dato;
     }
-    
+
     public void setDato(String dato) {
         this.dato = dato;
     }
-    
+
     public String getDato2() {
         return dato2;
     }
-    
+
     public void setDato2(String dato2) {
         this.dato2 = dato2;
     }
-    
-    public Integer getBorrado_log() {
+
+//</editor-fold>
+    public String getBorrado_log() {
         return borrado_log;
     }
-    
-    public void setBorrado_log(Integer borrado_log) {
+
+    public void setBorrado_log(String borrado_log) {
         this.borrado_log = borrado_log;
     }
-//</editor-fold>
 
 }

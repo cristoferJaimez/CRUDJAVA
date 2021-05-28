@@ -2,41 +2,107 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>CRUD</title>
     </h:head>
     <h:body>
 
-        
+
         <!--hacer un formulario-->
         <!--dos campos para datos y datos2-->
         <!--un boton de guardar-->
         <!--ajax jsf-->
-        
+
         <!--JSF-->
-        
-        
-        
-        <h:dataTable value="#{controladorDeDatos.listarDatos()}" var="ver" border="1">
+
+
+        <h:panelGrid columns="1">
+            <h:form>
+                <h:outputLabel> dato </h:outputLabel>
+                <h:inputText value="#{controladorDeDatos.dato}"></h:inputText>
+
+
+                <h:outputLabel> dato2 </h:outputLabel>
+                <h:inputText value="#{controladorDeDatos.dato2}"></h:inputText>
+
+                <h:commandButton value="enviar" action="#{controladorDeDatos.crear()}"></h:commandButton>
+
+            </h:form>
+        </h:panelGrid>
+
+
+
+
+
+<!--        <h:dataTable value="#{controladorDeDatos.listarDatos()}" var="ver" border="1">
+
 
             <h:column>
                 <f:facet name="header">id</f:facet>
-                    #{ver.id}
-            </h:column>
+        #{ver.id}
+</h:column>
 
-            <h:column>
-                <f:facet name="header">datos</f:facet>
-                    #{ver.dato}
-            </h:column>
+<h:column>
+    <f:facet name="header">datos</f:facet>
+        #{ver.dato}
+</h:column>
 
-            <h:column>
-                <f:facet name="header">datos2</f:facet>
-                    #{ver.dato2}
-            </h:column>
+<h:column>
+    <f:facet name="header">datos2</f:facet>
+        #{ver.dato2}
+</h:column>
 
-          
-        </h:dataTable>
+<h:column>
+    <f:facet name="header">Borrado?</f:facet>
+        #{ver.borrado_log}
+</h:column>
+<h:column>
+    <f:facet name="header">opciones</f:facet>
+    <h:form>
+        <h:commandButton  value="Eliminar" title="#{ver.id}" action="#{controladorDeDatos.eliminar(ver.id)}"></h:commandButton>
+
+    </h:form>
+</h:column>
+
+
+
+</h:dataTable>-->
+
+
+        <table border="1"> 
+
+            <thead>
+                <th>id</th>
+                <th>dato</th>
+                <th>dato2</th>
+                <th>opciones</th>
+            </thead>
+
+            <tbody>
+
+                <c:forEach items="#{controladorDeDatos.listarDatos()}" var="ver" >
+                    <c:if test="#{ver.borrado_log.equalsIgnoreCase('no')}">
+                        <tr>
+                            <td>#{ver.id}</td>
+                            <td>#{ver.dato}</td>
+                            <td>#{ver.dato2}</td>
+                            <td>
+                                <h:form>
+                                    <h:commandButton  value="Eliminar" title="#{ver.id}" action="#{controladorDeDatos.eliminar(ver.id)}"></h:commandButton>
+
+                                </h:form>
+                            </td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+            </tbody>
+
+
+        </table>
+
+
 
 
 

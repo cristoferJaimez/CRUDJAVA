@@ -21,7 +21,10 @@ public interface Idatos extends DAO<Datos,Integer>{
     
     // se declaran metoso especiales que nesecite solo para la clase dato
     //List<Datos> listaApellidos();
+  
+    // metodo personalizado
+    void guardarDato(String dato, String dato2, String borrado_log );
     
-    
+    void eliminardato(int id,String borrado_log);
     
 }
